@@ -14,6 +14,7 @@
         <div class="navlinks">
           <a href="#flights">航班</a>
           <a href="#hotels">住宿</a>
+          <a href="#customize">自訂</a>
           <a href="#days">行程</a>
           <a href="#budget">總額</a>
         </div>
@@ -77,6 +78,60 @@
             <p>餐飲、Grab、按摩、離島團與保險要等選定後才可精算。</p>
           </article>
         </div>
+      </section>
+
+      <section class="section planner-section" id="customize">
+        <div class="section-heading">
+          <p class="eyebrow">Custom planner</p>
+          <h2>自訂時間、天數與地點</h2>
+          <p>這裡會即時重排行程。只要日期、天數或地點改變，航班與住宿價格就需要重新查詢。</p>
+        </div>
+
+        <div class="planner-grid">
+          <form class="planner-form" id="planner-form">
+            <label>
+              <span>出發日期</span>
+              <input id="start-date" type="date" value="2026-10-20" />
+            </label>
+            <label>
+              <span>總天數</span>
+              <input id="trip-days" type="number" min="4" max="14" value="7" />
+            </label>
+            <label>
+              <span>曼谷晚數</span>
+              <input id="bangkok-nights" type="number" min="1" max="10" value="3" />
+            </label>
+            <label>
+              <span>普吉晚數</span>
+              <input id="phuket-nights" type="number" min="1" max="10" value="3" />
+            </label>
+            <label>
+              <span>出發地</span>
+              <select id="origin-city">
+                <option value="台北">台北</option>
+                <option value="高雄">高雄</option>
+                <option value="台中">台中</option>
+              </select>
+            </label>
+            <label>
+              <span>第二城市</span>
+              <select id="island-city">
+                <option value="普吉">普吉</option>
+                <option value="清邁">清邁</option>
+                <option value="喀比">喀比</option>
+              </select>
+            </label>
+          </form>
+
+          <aside class="planner-summary">
+            <span>自訂結果</span>
+            <strong id="custom-route">台北 → 曼谷 → 普吉 → 台北</strong>
+            <p id="custom-dates">2026/10/20 出發，2026/10/26 晚回，2026/10/27 抵台。</p>
+            <p class="price-warning">更改條件後，航班與住宿價格不沿用目前報價，需要重新查 Google Flights / Hotels。</p>
+          </aside>
+        </div>
+
+        <div class="custom-itinerary" id="custom-itinerary" aria-live="polite"></div>
       </section>
 
       <section class="section" id="flights">

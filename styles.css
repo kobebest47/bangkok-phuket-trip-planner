@@ -577,6 +577,124 @@ button {
   flex: 0 0 auto;
 }
 
+.planner-section {
+  border-top: 1px solid var(--line);
+}
+
+.planner-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  gap: 22px;
+  align-items: start;
+}
+
+.planner-form,
+.planner-summary,
+.custom-day {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: 0 12px 32px rgba(20, 54, 50, 0.06);
+}
+
+.planner-form {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.planner-form label {
+  display: grid;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.planner-form input,
+.planner-form select {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 9px 11px;
+  color: var(--ink);
+  background: #fbfdfb;
+  font: inherit;
+}
+
+.planner-form input:focus,
+.planner-form select:focus {
+  outline: 2px solid rgba(14, 118, 111, 0.25);
+  border-color: var(--teal);
+}
+
+.planner-summary {
+  padding: 22px;
+}
+
+.planner-summary span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.planner-summary strong {
+  display: block;
+  margin: 8px 0 10px;
+  color: var(--teal-dark);
+  font-size: 1.35rem;
+  line-height: 1.3;
+}
+
+.planner-summary p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.planner-summary .price-warning {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  color: var(--coral);
+  font-weight: 800;
+}
+
+.custom-itinerary {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.custom-day {
+  min-height: 142px;
+  padding: 16px;
+}
+
+.custom-day span {
+  color: var(--coral);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.custom-day strong {
+  display: block;
+  margin: 8px 0;
+  line-height: 1.25;
+}
+
+.custom-day p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
 footer {
   padding: 30px 20px 44px;
   text-align: center;
@@ -587,7 +705,8 @@ footer {
   .hero-grid,
   .route-layout,
   .day-panel,
-  .budget-layout {
+  .budget-layout,
+  .planner-grid {
     grid-template-columns: 1fr;
   }
 
@@ -605,6 +724,14 @@ footer {
 
   .budget-total {
     position: static;
+  }
+
+  .planner-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .custom-itinerary {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -653,7 +780,9 @@ footer {
   }
 
   .kpi-grid,
-  .hotel-grid {
+  .hotel-grid,
+  .planner-form,
+  .custom-itinerary {
     grid-template-columns: 1fr;
   }
 

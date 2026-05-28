@@ -83,6 +83,10 @@ dayTabs.forEach((tab) => {
 const budgetBars = document.querySelector("#budget-bars");
 const budgetTotal = document.querySelector("#budget-total");
 const budgetNote = document.querySelector("#budget-note");
+const plannerForm = document.querySelector("#planner-form");
+const customRoute = document.querySelector("#custom-route");
+const customDates = document.querySelector("#custom-dates");
+const customItinerary = document.querySelector("#custom-itinerary");
 
 function renderQuotedTotal() {
   budgetTotal.textContent = currency.format(quotedItems.total);
@@ -107,3 +111,88 @@ function renderQuotedTotal() {
 
 renderDay(0);
 renderQuotedTotal();
+
+const dateFormatter = new Intl.DateTimeFormat("zh-TW", {
+  month: "2-digit",
+  day: "2-digit",
+  weekday: "short",
+});
+
+function addDays(date, daysToAdd) {
+  const copy = new Date(date);
+  copy.setDate(copy.getDate() + daysToAdd);
+  return copy;
+}
+
+function formatDate(date) {
+  return dateFormatter.format(date);
+}
+
+function getPlannerValue(id) {
+  const element = document.querySelector(id);
+  return element?.value ?? "";
+}
+
+function renderCustomPlanner() {
+  if (!plannerForm || !customRoute || !customDates || !customItinerary) return;
+
+  const origin = getPlannerValue("#origin-city");
+  const island = getPlannerValue("#island-city");
+  const start = new Date(`${getPlannerValue("#start-date")}T00:00:00`);
+  const tripDays = Math.max(4, Number(getPlannerValue("#trip-days")) || 7);
+  const bangkokNights = Math.max(1, Number(getPlannerValue("#bangkok-nights")) || 3);
+  const phuketNights = Math.max(1, Number(getPlannerValue("#phuket-nights")) || 3);
+  const totalNights = tripDays - 1;
+  const firstCityNights = Math.min(bangkokNights, totalNights - 1);
+  const secondCityNights = Math.min(phuketNights, totalNights - firstCityNights);
+  const returnDate = addDays(start, totalNights);
+  const arrivalDate = addDays(returnDate, 1);
+  const transferDay = firstCityNights + 1;
+
+  customRoute.textContent = `${origin} → 曼谷 → ${island} → ${origin}`;
+  customDates.textContent = `${formatDate(start)} 出發，${formatDate(returnDate)} 晚回，${formatDate(arrivalDate)} 抵台。`;
+
+  const cards = Array.from({ length: tripDays }, (_, index) => {
+    const dayNumber = index + 1;
+    const date = addDays(start, index);
+    let city = "曼谷";
+    let title = "曼谷市區";
+    let note = "寺廟、購物、按摩、美食，依體力調整。";
+
+    if (dayNumber === 1) {
+      title = "早班抵達曼谷";
+      note = "建議選早班直飛，下午即可開始市區行程。";
+    } else if (dayNumber === transferDay) {
+      city = `曼谷 → ${island}`;
+      title = `下午後飛${island}`;
+      note = "白天留在曼谷，15:00 後再移動到機場。";
+    } else if (dayNumber > transferDay && dayNumber < tripDays) {
+      city = island;
+      title = `${island}停留`;
+      note = island === "普吉" ? "海灘、老城、離島一日遊看天氣安排。" : "安排當地核心景點與半日放鬆行程。";
+    } else if (dayNumber === tripDays) {
+      city = `${island} → ${origin}`;
+      title = "晚班回程";
+      note = "白天保留最後行程，晚上搭機回台。";
+    }
+
+    const card = document.createElement("article");
+    card.className = "custom-day";
+    card.innerHTML = `
+      <span>D${dayNumber} · ${formatDate(date)}</span>
+      <strong>${city}</strong>
+      <p>${title}<br>${note}</p>
+    `;
+    return card;
+  });
+
+  customItinerary.replaceChildren(...cards);
+
+  const nightsMismatch = firstCityNights + secondCityNights !== totalNights;
+  customItinerary.toggleAttribute("data-needs-adjustment", nightsMismatch);
+}
+
+if (plannerForm) {
+  plannerForm.addEventListener("input", renderCustomPlanner);
+  renderCustomPlanner();
+}
