@@ -123,10 +123,17 @@ button, input { font: inherit; }
 .meal-row { display: flex; align-items: baseline; gap: 14px; margin-top: 22px; }
 .meal-row span { color: var(--muted); font-size: .8rem; font-weight: 800; }
 
-.food-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-.food-grid article { min-height: 190px; padding: 22px; box-shadow: none; }
-.food-grid h3 { margin: 9px 0 10px; font-size: 1.22rem; }
-.food-grid p { margin: 0; color: var(--muted); line-height: 1.65; }
+.restaurant-list { border-top: 1px solid var(--line); }
+.restaurant-list article { display: grid; grid-template-columns: 260px 1fr; gap: 28px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+.restaurant-day span { display: block; margin-bottom: 6px; color: var(--red); font-size: .77rem; font-weight: 900; }
+.restaurant-day strong { font-size: 1.2rem; }
+.restaurant-list p { margin: 0; line-height: 1.65; }
+.restaurant-list small { display: block; margin-top: 7px; color: var(--muted); line-height: 1.55; }
+.sky-callout { margin-top: 28px; padding: 26px; display: flex; align-items: center; justify-content: space-between; gap: 30px; color: var(--white); border-radius: 8px; background: var(--green-dark); }
+.sky-callout span { color: #f2c66e; font-size: .78rem; font-weight: 900; }
+.sky-callout h3 { margin: 7px 0; font-size: 1.5rem; }
+.sky-callout p { max-width: 720px; margin: 0; color: rgba(255,255,255,.76); line-height: 1.65; }
+.button.dark { flex: 0 0 auto; color: var(--ink); background: #f1c86f; }
 
 .budget-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 16px; }
 .budget-main, .budget-notes { padding: 26px; }
@@ -152,7 +159,7 @@ footer p { margin: 7px 0 0; color: var(--muted); font-size: .85rem; }
   .trip-strip div:nth-child(2) { border-right: 0; }
   .trip-strip div:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,.16); }
   .flight-grid, .budget-grid { grid-template-columns: 1fr; }
-  .food-grid { grid-template-columns: repeat(2, 1fr); }
+  .restaurant-list article { grid-template-columns: 210px 1fr; }
 }
 
 @media (max-width: 640px) {
@@ -184,6 +191,6 @@ footer p { margin: 7px 0 0; color: var(--muted); font-size: .85rem; }
   .day-panel h3 { font-size: 1.55rem; }
   .day-panel li { grid-template-columns: 58px 1fr; gap: 10px; }
   .meal-row { align-items: flex-start; flex-direction: column; gap: 5px; }
-  .food-grid { grid-template-columns: 1fr; }
-  .food-grid article { min-height: auto; }
+  .restaurant-list article { grid-template-columns: 1fr; gap: 10px; }
+  .sky-callout { align-items: flex-start; flex-direction: column; }
 }
