@@ -1,198 +1,27 @@
 const days = [
-  {
-    city: "Bangkok",
-    title: "早班直飛曼谷",
-    items: ["星宇航空 TPE 09:00 → BKK 12:00", "抵達後叫車進市區，入住 Staybridge Suites Bangkok Thonglor", "下午開始跑曼谷市區，晚上安排按摩或 Terminal 21"],
-  },
-  {
-    city: "Bangkok",
-    title: "曼谷市區與購物",
-    items: ["上午安排鄭王廟、大皇宮或臥佛寺", "下午回 Siam / CentralWorld / Terminal 21", "晚上可安排高空酒吧或第二輪按摩"],
-  },
-  {
-    city: "Bangkok",
-    title: "曼谷完整一天",
-    items: ["上午安排鄭王廟、大皇宮或臥佛寺其中一組", "下午回 Siam / CentralWorld / Big C 採買", "晚上安排高空酒吧或第二輪按摩"],
-  },
-  {
-    city: "Bangkok → Phuket",
-    title: "下午後再飛普吉",
-    items: ["白天留在曼谷吃飯、購物或按摩", "泰國亞洲航空 BKK 18:15 → HKT 19:35", "抵達後入住 Sugar Marina Hotel -POP- Kata Beach，晚上只排簡單晚餐"],
-  },
-  {
-    city: "Phuket",
-    title: "Kata / Karon 海灘日",
-    items: ["上午 Kata / Karon 海灘散步或玩水", "下午安排咖啡廳、按摩或飯店休息", "晚上看天氣決定隔天是否跑離島"],
-  },
-  {
-    city: "Phuket",
-    title: "普吉老城與夜市",
-    items: ["天氣好可排皮皮島或攀牙灣一日遊", "若海象不好，改普吉老城、咖啡廳、按摩", "晚上安排夜市或 Patong 短暫體驗"],
-  },
-  {
-    city: "Phuket → Taipei",
-    title: "晚班機回台",
-    items: ["白天可安排海灘、寄放行李與最後按摩", "泰越捷航空 HKT 21:45 → BKK 轉機 → TPE 10/27 06:30", "回程是晚出發、隔天清晨抵台"],
-  },
+  { area: "成田 → 東京", title: "抵達與入住", note: "今天只安排入住與晚餐，不塞景點。", meal: "上野居酒屋或拉麵", items: [["16:50", "抵達成田機場，辦理入境並領取行李"], ["18:30", "搭乘 Access Express 前往淺草，或搭 Skyliner 前往上野"], ["20:00", "飯店入住，確認隔日交通與集合時間"], ["20:30", "飯店附近簡單晚餐，便利商店補充早餐與飲用水"]] },
+  { area: "淺草 → 押上", title: "寺廟與晴空塔", note: "上午看老東京，下午一路走到晴空塔。", meal: "大黑家天丼、淺草小吃、Solamachi 晚餐", items: [["08:30", "雷門、淺草寺，趁人潮較少先拍照參拜"], ["10:00", "仲見世商店街與周邊巷弄"], ["11:30", "合羽橋道具街，採買餐具與生活雜貨"], ["14:30", "隅田公園、東京水街，步行前往押上"], ["16:30", "東京晴空塔，看日落與東京夜景"]] },
+  { area: "新宿 → 河口湖", title: "富士山一日", note: "四人若要跑三個景點，參加一日團會比多次轉車有效率。", meal: "河口湖餺飥不動", items: [["06:00", "從飯店出發前往新宿集合"], ["09:00", "新倉山淺間公園，眺望富士山與五重塔"], ["11:30", "河口湖、大石公園散步"], ["13:00", "午餐後前往忍野八海；時間不足就取消此站"], ["17:00", "返回東京，晚上在新宿用餐"]] },
+  { area: "原宿 → 澀谷", title: "神社與購物日", note: "完整購物日，景點集中在同一條移動軸線。", meal: "牛かつ、AFURI 柚子拉麵或迴轉壽司", items: [["08:30", "明治神宮參拜與森林步道"], ["10:30", "竹下通、原宿小店"], ["12:30", "表參道午餐與選物店"], ["15:00", "澀谷 PARCO、LOFT、Scramble Square"], ["18:00", "Mega Don Quijote 採買，澀谷晚餐"]] },
+  { area: "上野 → 成田", title: "最後採買與回程", note: "13:15 必須抵達機場，市區行程只排到上午。", meal: "上野炸豬排或蕎麥麵", items: [["08:30", "退房並將行李寄放飯店"], ["09:30", "上野公園、阿美橫町最後採買"], ["11:00", "提早吃午餐並領取行李"], ["11:30", "最晚離開東京市區前往成田"], ["13:15", "機場集合；15:30 起飛，18:35 抵達台灣"]] },
 ];
 
-const quotedItems = {
-  total: 42044,
-  note: "每人分攤 NT$21,022。此金額不含托運行李加購、餐飲、當地交通、按摩、活動、旅平險與網卡。",
-  rows: [
-    ["TPE → BKK 星宇航空", 12388],
-    ["BKK → HKT 泰國亞洲航空", 3894],
-    ["HKT → TPE 泰越捷航空", 11518],
-    ["曼谷住宿 3 晚", 9567],
-    ["普吉住宿 3 晚", 4677],
-  ],
-};
-
-const currency = new Intl.NumberFormat("zh-TW", {
-  style: "currency",
-  currency: "TWD",
-  maximumFractionDigits: 0,
-});
-
-const dayTabs = document.querySelectorAll(".day-tab");
-const dayCity = document.querySelector("#day-city");
-const dayTitle = document.querySelector("#day-title");
-const dayList = document.querySelector("#day-list");
+const tabs = [...document.querySelectorAll(".day-tab")];
+const area = document.querySelector("#day-area");
+const title = document.querySelector("#day-title");
+const note = document.querySelector("#day-note");
+const list = document.querySelector("#day-list");
+const meal = document.querySelector("#day-meal");
 
 function renderDay(index) {
   const day = days[index];
-  dayCity.textContent = day.city;
-  dayTitle.textContent = day.title;
-  dayList.replaceChildren(
-    ...day.items.map((item) => {
-      const li = document.createElement("li");
-      li.textContent = item;
-      return li;
-    }),
-  );
-
-  dayTabs.forEach((tab) => {
-    tab.classList.toggle("active", Number(tab.dataset.day) === index);
-  });
+  area.textContent = day.area; title.textContent = day.title; note.textContent = day.note; meal.textContent = day.meal;
+  list.replaceChildren(...day.items.map(([time, activity]) => {
+    const item = document.createElement("li"); const timeElement = document.createElement("time"); const text = document.createElement("span");
+    timeElement.textContent = time; text.textContent = activity; item.append(timeElement, text); return item;
+  }));
+  tabs.forEach((tab, tabIndex) => { const active = tabIndex === index; tab.classList.toggle("active", active); tab.setAttribute("aria-selected", String(active)); });
 }
 
-dayTabs.forEach((tab) => {
-  tab.addEventListener("click", () => renderDay(Number(tab.dataset.day)));
-});
-
-const budgetBars = document.querySelector("#budget-bars");
-const budgetTotal = document.querySelector("#budget-total");
-const budgetNote = document.querySelector("#budget-note");
-const plannerForm = document.querySelector("#planner-form");
-const customRoute = document.querySelector("#custom-route");
-const customDates = document.querySelector("#custom-dates");
-const customItinerary = document.querySelector("#custom-itinerary");
-
-function renderQuotedTotal() {
-  budgetTotal.textContent = currency.format(quotedItems.total);
-  budgetNote.textContent = quotedItems.note;
-  budgetBars.replaceChildren(
-    ...quotedItems.rows.map(([name, amount]) => {
-      const row = document.createElement("article");
-      row.className = "budget-row";
-      row.innerHTML = `
-        <header>
-          <span>${name}</span>
-          <strong>${currency.format(amount)}</strong>
-        </header>
-        <div class="meter" aria-hidden="true">
-          <span style="--width: ${(amount / quotedItems.total) * 100}%"></span>
-        </div>
-      `;
-      return row;
-    }),
-  );
-}
-
+tabs.forEach((tab) => tab.addEventListener("click", () => renderDay(Number(tab.dataset.day))));
 renderDay(0);
-renderQuotedTotal();
-
-const dateFormatter = new Intl.DateTimeFormat("zh-TW", {
-  month: "2-digit",
-  day: "2-digit",
-  weekday: "short",
-});
-
-function addDays(date, daysToAdd) {
-  const copy = new Date(date);
-  copy.setDate(copy.getDate() + daysToAdd);
-  return copy;
-}
-
-function formatDate(date) {
-  return dateFormatter.format(date);
-}
-
-function getPlannerValue(id) {
-  const element = document.querySelector(id);
-  return element?.value ?? "";
-}
-
-function renderCustomPlanner() {
-  if (!plannerForm || !customRoute || !customDates || !customItinerary) return;
-
-  const origin = getPlannerValue("#origin-city");
-  const island = getPlannerValue("#island-city");
-  const start = new Date(`${getPlannerValue("#start-date")}T00:00:00`);
-  const tripDays = Math.max(4, Number(getPlannerValue("#trip-days")) || 7);
-  const bangkokNights = Math.max(1, Number(getPlannerValue("#bangkok-nights")) || 3);
-  const phuketNights = Math.max(1, Number(getPlannerValue("#phuket-nights")) || 3);
-  const totalNights = tripDays - 1;
-  const firstCityNights = Math.min(bangkokNights, totalNights - 1);
-  const secondCityNights = Math.min(phuketNights, totalNights - firstCityNights);
-  const returnDate = addDays(start, totalNights);
-  const arrivalDate = addDays(returnDate, 1);
-  const transferDay = firstCityNights + 1;
-
-  customRoute.textContent = `${origin} → 曼谷 → ${island} → ${origin}`;
-  customDates.textContent = `${formatDate(start)} 出發，${formatDate(returnDate)} 晚回，${formatDate(arrivalDate)} 抵台。`;
-
-  const cards = Array.from({ length: tripDays }, (_, index) => {
-    const dayNumber = index + 1;
-    const date = addDays(start, index);
-    let city = "曼谷";
-    let title = "曼谷市區";
-    let note = "寺廟、購物、按摩、美食，依體力調整。";
-
-    if (dayNumber === 1) {
-      title = "早班抵達曼谷";
-      note = "建議選早班直飛，下午即可開始市區行程。";
-    } else if (dayNumber === transferDay) {
-      city = `曼谷 → ${island}`;
-      title = `下午後飛${island}`;
-      note = "白天留在曼谷，15:00 後再移動到機場。";
-    } else if (dayNumber > transferDay && dayNumber < tripDays) {
-      city = island;
-      title = `${island}停留`;
-      note = island === "普吉" ? "海灘、老城、離島一日遊看天氣安排。" : "安排當地核心景點與半日放鬆行程。";
-    } else if (dayNumber === tripDays) {
-      city = `${island} → ${origin}`;
-      title = "晚班回程";
-      note = "白天保留最後行程，晚上搭機回台。";
-    }
-
-    const card = document.createElement("article");
-    card.className = "custom-day";
-    card.innerHTML = `
-      <span>D${dayNumber} · ${formatDate(date)}</span>
-      <strong>${city}</strong>
-      <p>${title}<br>${note}</p>
-    `;
-    return card;
-  });
-
-  customItinerary.replaceChildren(...cards);
-
-  const nightsMismatch = firstCityNights + secondCityNights !== totalNights;
-  customItinerary.toggleAttribute("data-needs-adjustment", nightsMismatch);
-}
-
-if (plannerForm) {
-  plannerForm.addEventListener("input", renderCustomPlanner);
-  renderCustomPlanner();
-}

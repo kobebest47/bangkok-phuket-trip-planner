@@ -3,311 +3,96 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>曼谷 + 普吉島 7 天精確報價</title>
+    <meta name="description" content="2026 東京五日四夜：成田航班、四人住宿、富士山、淺草與購物行程。" />
+    <title>東京 5 日旅行計畫｜2026/11/11–11/15</title>
     <link rel="stylesheet" href="styles.css" />
     <script defer src="script.js"></script>
   </head>
   <body>
-    <header class="hero">
+    <header class="hero" id="overview">
       <nav class="topbar" aria-label="主要導覽">
-        <a class="brand" href="#overview">BKK + HKT</a>
+        <a class="brand" href="#overview">TOKYO 2026</a>
         <div class="navlinks">
-          <a href="#flights">航班</a>
-          <a href="#hotels">住宿</a>
-          <a href="#customize">自訂</a>
-          <a href="#days">行程</a>
-          <a href="#budget">總額</a>
+          <a href="#flights">航班</a><a href="#stay">住宿</a><a href="#itinerary">行程</a><a href="#food">美食</a><a href="#budget">預算</a>
         </div>
       </nav>
-
-      <section class="hero-grid" id="overview">
-        <div class="hero-copy">
-          <p class="eyebrow">Checked 2026-05-27 · Google Flights / Google Hotels</p>
-          <h1>曼谷 + 普吉島<br />7 天精確方案</h1>
-          <p class="lead">
-            固定日期為 2026/10/20-10/26，2 位成人。已改成早去晚回，並把前 3 晚留在曼谷，
-            第 4 天傍晚才飛普吉；餐飲、交通、按摩與活動尚未選購，因此不混入總價。
-          </p>
-          <div class="hero-actions" aria-label="快速操作">
-            <a class="button primary" href="#flights">看確切航班</a>
-            <a class="button ghost" href="#budget">看總金額</a>
-          </div>
-        </div>
-
-        <aside class="trip-card" aria-label="精確摘要">
-          <div>
-            <span class="label">日期</span>
-            <strong>2026/10/20 - 10/26</strong>
-            <small>實際回台為 10/27 抵達台北</small>
-          </div>
-          <div>
-            <span class="label">已查到總額</span>
-            <strong>NT$42,044</strong>
-            <small>2 人機票 + 6 晚住宿</small>
-          </div>
-          <div>
-            <span class="label">每人分攤</span>
-            <strong>NT$21,022</strong>
-            <small>不含餐飲、當地交通、活動</small>
-          </div>
-        </aside>
-      </section>
+      <div class="hero-content">
+        <p class="eyebrow">4 人同行 · 5 天 4 夜</p>
+        <h1>東京，剛剛好的<br />五日旅行</h1>
+        <p class="lead">淺草與晴空塔、富士山一日、東京逛街。行程按區域安排，少換車、不趕場。</p>
+        <div class="hero-actions"><a class="button primary" href="#itinerary">查看每日行程</a><a class="button secondary" href="#stay">查看住宿</a></div>
+      </div>
+      <div class="trip-strip" aria-label="旅程摘要">
+        <div><span>日期</span><strong>11/11–11/15</strong></div><div><span>機場</span><strong>成田 NRT</strong></div><div><span>人數</span><strong>4 人 · 1 間房</strong></div><div><span>住宿上限</span><strong>NT$32,000 / 4 晚</strong></div>
+      </div>
     </header>
 
     <main>
-      <section class="section compact">
-        <div class="kpi-grid" aria-label="精確金額">
-          <article>
-            <span>機票總額</span>
-            <strong>NT$27,800</strong>
-            <p>Google Flights 顯示 2 位成人含稅總價，行李費可能另計。</p>
-          </article>
-          <article>
-            <span>住宿總額</span>
-            <strong>NT$14,244</strong>
-            <p>Google Hotels 顯示每晚價格加總，實際結帳稅費以平台為準。</p>
-          </article>
-          <article>
-            <span>已報價項目</span>
-            <strong>NT$42,044</strong>
-            <p>只計入已有明確來源價格的航班與住宿。</p>
-          </article>
-          <article>
-            <span>未報價項目</span>
-            <strong>不列入</strong>
-            <p>餐飲、Grab、按摩、離島團與保險要等選定後才可精算。</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section planner-section" id="customize">
-        <div class="section-heading">
-          <p class="eyebrow">Custom planner</p>
-          <h2>自訂時間、天數與地點</h2>
-          <p>這裡會即時重排行程。只要日期、天數或地點改變，航班與住宿價格就需要重新查詢。</p>
-        </div>
-
-        <div class="planner-grid">
-          <form class="planner-form" id="planner-form">
-            <label>
-              <span>出發日期</span>
-              <input id="start-date" type="date" value="2026-10-20" />
-            </label>
-            <label>
-              <span>總天數</span>
-              <input id="trip-days" type="number" min="4" max="14" value="7" />
-            </label>
-            <label>
-              <span>曼谷晚數</span>
-              <input id="bangkok-nights" type="number" min="1" max="10" value="3" />
-            </label>
-            <label>
-              <span>普吉晚數</span>
-              <input id="phuket-nights" type="number" min="1" max="10" value="3" />
-            </label>
-            <label>
-              <span>出發地</span>
-              <select id="origin-city">
-                <option value="台北">台北</option>
-                <option value="高雄">高雄</option>
-                <option value="台中">台中</option>
-              </select>
-            </label>
-            <label>
-              <span>第二城市</span>
-              <select id="island-city">
-                <option value="普吉">普吉</option>
-                <option value="清邁">清邁</option>
-                <option value="喀比">喀比</option>
-              </select>
-            </label>
-          </form>
-
-          <aside class="planner-summary">
-            <span>自訂結果</span>
-            <strong id="custom-route">台北 → 曼谷 → 普吉 → 台北</strong>
-            <p id="custom-dates">2026/10/20 出發，2026/10/26 晚回，2026/10/27 抵台。</p>
-            <p class="price-warning">更改條件後，航班與住宿價格不沿用目前報價，需要重新查 Google Flights / Hotels。</p>
-          </aside>
-        </div>
-
-        <div class="custom-itinerary" id="custom-itinerary" aria-live="polite"></div>
-      </section>
-
       <section class="section" id="flights">
-        <div class="section-heading">
-          <p class="eyebrow">Confirmed flight options</p>
-          <h2>確切航班與金額</h2>
-          <p>來源為 Google Flights，條件為 2 位成人、經濟艙、單程分段購買、幣別 TWD。</p>
-        </div>
-
-        <div class="route-layout">
-          <div class="route-map" aria-label="航線示意">
-            <div class="airport active">
-              <span>TPE</span>
-              <strong>台北</strong>
-            </div>
-            <div class="route-line"></div>
-            <div class="airport">
-              <span>DMK / BKK</span>
-              <strong>曼谷</strong>
-            </div>
-            <div class="route-line short"></div>
-            <div class="airport beach">
-              <span>HKT</span>
-              <strong>普吉</strong>
-            </div>
-          </div>
-
-          <div class="option-grid">
-            <article class="option selected">
-              <div class="option-head">
-                <span>D1 · 10/20</span>
-                <strong>星宇航空 · 直飛</strong>
-              </div>
-              <p>TPE 09:00 → BKK 12:00，飛行 4 小時。早到曼谷，價格比最早 THAI 班省 NT$3,684。</p>
-              <dl>
-                <div><dt>2 人含稅票價</dt><dd>NT$12,388</dd></div>
-                <div><dt>機場</dt><dd>台北桃園 → 曼谷素萬那普</dd></div>
-              </dl>
-            </article>
-
-            <article class="option selected">
-              <div class="option-head">
-                <span>D4 · 10/23</span>
-                <strong>泰國亞洲航空 · 直飛</strong>
-              </div>
-              <p>BKK 18:15 → HKT 19:35，飛行 1 小時 20 分鐘。符合下午 3-4 點後再去普吉。</p>
-              <dl>
-                <div><dt>2 人含稅票價</dt><dd>NT$3,894</dd></div>
-                <div><dt>備註</dt><dd>BKK 出發，比 DMK 更順</dd></div>
-              </dl>
-            </article>
-
-            <article class="option selected">
-              <div class="option-head">
-                <span>D7 · 10/26</span>
-                <strong>泰越捷航空 · 曼谷轉機</strong>
-              </div>
-              <p>HKT 21:45 → BKK 轉機 → TPE 10/27 06:30，總時間 7 小時 45 分鐘。</p>
-              <dl>
-                <div><dt>2 人含稅票價</dt><dd>NT$11,518</dd></div>
-                <div><dt>備註</dt><dd>晚回、轉機短、隔天清晨抵台</dd></div>
-              </dl>
-            </article>
-
-            <article class="option">
-              <div class="option-head">
-                <span>去程最早備案</span>
-                <strong>THAI · 直飛</strong>
-              </div>
-              <p>TPE 07:55 → BKK 10:40，總時間 3 小時 45 分鐘。這是查到的最早直飛。</p>
-              <dl>
-                <div><dt>2 人含稅票價</dt><dd>NT$16,072</dd></div>
-                <div><dt>多付</dt><dd>比星宇多 NT$3,684</dd></div>
-              </dl>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section split" id="hotels">
-        <div class="section-heading">
-          <p class="eyebrow">Confirmed hotel prices</p>
-          <h2>住宿明確房價</h2>
-          <p>來源為 Google Hotels 搜尋結果，條件為 2 位成人、1 間房。Google Hotels 顯示為每晚價格。</p>
-        </div>
-
-        <div class="hotel-grid">
-          <article>
-            <div class="hotel-meta">
-              <span>10/20 - 10/23 · 3 晚</span>
-              <strong>Staybridge Suites Bangkok Thonglor</strong>
-            </div>
-            <p>Google Hotels 顯示 NT$3,189/晚，評分 4.7/5，4 星級。</p>
-            <ul>
-              <li>每晚：NT$3,189</li>
-              <li>3 晚小計：NT$9,567</li>
-              <li>區域：Thonglor，適合用 BTS 進出市區</li>
-            </ul>
+        <div class="section-heading"><p class="eyebrow">Confirmed flights</p><h2>已購買航班</h2><p>國泰航空，成田機場進出。航班編號與票價尚未提供，因此不顯示推測資料。</p></div>
+        <div class="flight-grid">
+          <article class="flight-card">
+            <div class="card-top"><span class="tag">11/11 去程</span><span>集合 10:30</span></div>
+            <div class="flight-time"><strong>12:50</strong><span><i></i>飛往東京<i></i></span><strong>16:50</strong></div>
+            <div class="flight-airports"><span>台灣</span><span>成田 NRT</span></div><p>抵達後預留約 90 分鐘辦理入境、領行李，再前往飯店。</p>
           </article>
-
-          <article>
-            <div class="hotel-meta">
-              <span>10/23 - 10/26 · 3 晚</span>
-              <strong>Sugar Marina Hotel -POP- Kata Beach</strong>
-            </div>
-            <p>Google Hotels 顯示 Agoda 價 NT$1,559/晚，評分 4.9/5，4 星級。</p>
-            <ul>
-              <li>每晚：NT$1,559</li>
-              <li>3 晚小計：NT$4,677</li>
-              <li>區域：Kata Beach，海灘與餐廳機能好</li>
-            </ul>
+          <article class="flight-card">
+            <div class="card-top"><span class="tag">11/15 回程</span><span>機場集合 13:15</span></div>
+            <div class="flight-time"><strong>15:30</strong><span><i></i>返回台灣<i></i></span><strong>18:35</strong></div>
+            <div class="flight-airports"><span>成田 NRT</span><span>台灣</span></div><p>建議 11:30 前離開淺草／上野，保留轉車與排隊時間。</p>
           </article>
         </div>
       </section>
 
-      <section class="section" id="days">
-        <div class="section-heading">
-          <p class="eyebrow">7-day itinerary</p>
-          <h2>每日行程</h2>
-          <p>行程已配合早去晚回與第 4 天傍晚飛普吉調整，10/27 清晨抵台。</p>
+      <section class="section band" id="stay">
+        <div class="section-heading"><p class="eyebrow">Stay shortlist</p><h2>四人住宿怎麼選</h2><p>結帳條件統一設定：4 位成人、1 間房、4 晚，含稅總額不得超過 NT$32,000。</p></div>
+        <div class="stay-summary"><div><span>每晚上限</span><strong>NT$8,000</strong></div><div><span>每人 4 晚</span><strong>NT$8,000</strong></div><div><span>首選區域</span><strong>淺草／上野／入谷</strong></div></div>
+        <div class="hotel-list">
+          <article class="hotel-card recommended"><div class="rank">首選</div><div class="hotel-body">
+            <div class="hotel-title"><div><span>入谷 · 公寓式</span><h3>Minn Ueno-Iriya</h3></div><strong class="score">8.4</strong></div>
+            <p>家庭房可住 4–5 人，兩張雙人床加沙發床；有廚房，入谷站步行約 3 分鐘。</p><div class="facts"><span>床型較適合 4 人</span><span>交通穩定</span><span>可簡單料理</span></div>
+            <a class="text-link" href="https://www.booking.com/hotel/jp/iriya.zh-tw.html?checkin=2026-11-11&amp;checkout=2026-11-15&amp;group_adults=4&amp;no_rooms=1&amp;group_children=0" target="_blank" rel="noreferrer">查看 4 人即時含稅總價 →</a>
+          </div></article>
+          <article class="hotel-card"><div class="rank">備選 1</div><div class="hotel-body">
+            <div class="hotel-title"><div><span>淺草 · 公寓式</span><h3>Apartment Hotel 11 Asakusa 2</h3></div><strong class="score">9.1</strong></div>
+            <p>兩張雙人床，有洗衣機與廚房；淺草寺步行約 13 分鐘，但離主要車站較遠。</p><div class="facts"><span>房間較寬敞</span><span>可洗衣</span><span>適合四人同住</span></div>
+            <a class="text-link" href="https://www.booking.com/hotel/jp/apartment-11-asakusa-2.zh-tw.html?checkin=2026-11-11&amp;checkout=2026-11-15&amp;group_adults=4&amp;no_rooms=1&amp;group_children=0" target="_blank" rel="noreferrer">查看 4 人即時含稅總價 →</a>
+          </div></article>
+          <article class="hotel-card"><div class="rank">備選 2</div><div class="hotel-body">
+            <div class="hotel-title"><div><span>上野 · 和室</span><h3>Tokyo Ueno New Izu Hotel</h3></div><strong class="score neutral">平價</strong></div>
+            <p>7.5 疊和室可住 4 人，往返成田方便；官方提醒四人入住會比較擁擠。</p><div class="facts"><span>預算優先</span><span>上野交通方便</span><span>空間較緊湊</span></div>
+            <a class="text-link" href="https://www.izuhotel.co.jp/en/room/" target="_blank" rel="noreferrer">查看官方房型 →</a>
+          </div></article>
         </div>
+        <div class="notice"><strong>價格狀態</strong><p>訂房頁需要即時互動才能取得你們日期的結帳價，目前尚未查到可核實的 11/11–11/15 四人含稅總價。網站不會把其他日期或雙人價格當成現價。</p></div>
+      </section>
 
-        <div class="day-tabs" role="tablist" aria-label="每日行程">
-          <button class="day-tab active" data-day="0" type="button">D1</button>
-          <button class="day-tab" data-day="1" type="button">D2</button>
-          <button class="day-tab" data-day="2" type="button">D3</button>
-          <button class="day-tab" data-day="3" type="button">D4</button>
-          <button class="day-tab" data-day="4" type="button">D5</button>
-          <button class="day-tab" data-day="5" type="button">D6</button>
-          <button class="day-tab" data-day="6" type="button">D7</button>
+      <section class="section" id="itinerary">
+        <div class="section-heading"><p class="eyebrow">Daily plan</p><h2>五天行程</h2><p>富士山安排在第三天；若天氣不佳，可直接和第四天的逛街行程交換。</p></div>
+        <div class="day-tabs" role="tablist" aria-label="選擇日期">
+          <button class="day-tab active" data-day="0" type="button" role="tab" aria-selected="true"><span>D1</span>11/11</button><button class="day-tab" data-day="1" type="button" role="tab" aria-selected="false"><span>D2</span>11/12</button><button class="day-tab" data-day="2" type="button" role="tab" aria-selected="false"><span>D3</span>11/13</button><button class="day-tab" data-day="3" type="button" role="tab" aria-selected="false"><span>D4</span>11/14</button><button class="day-tab" data-day="4" type="button" role="tab" aria-selected="false"><span>D5</span>11/15</button>
         </div>
-
         <article class="day-panel" aria-live="polite">
-          <div>
-            <span id="day-city">Bangkok</span>
-            <h3 id="day-title">台北飛曼谷</h3>
-          </div>
-          <ul id="day-list"></ul>
+          <header><div><span id="day-area">成田 → 東京</span><h3 id="day-title">抵達與入住</h3></div><p id="day-note">今天只安排入住與晚餐，不塞景點。</p></header>
+          <ol id="day-list"></ol><div class="meal-row"><span>今日推薦</span><strong id="day-meal">上野居酒屋或拉麵</strong></div>
         </article>
       </section>
 
-      <section class="section budget-section" id="budget">
-        <div class="section-heading">
-          <p class="eyebrow">Exact total</p>
-          <h2>目前可確認總額</h2>
-          <p>這裡只放查到明確價格的項目。未選購項目不做估算，避免混淆。</p>
-        </div>
+      <section class="section band" id="food">
+        <div class="section-heading"><p class="eyebrow">Food map</p><h2>每天吃什麼</h2><p>餐廳依行程區域安排；熱門店若排隊超過 30 分鐘，就換同區備案。</p></div>
+        <div class="food-grid"><article><span>淺草</span><h3>大黑家天丼</h3><p>搭配淺草寺行程。招牌天丼，店家以現金付款為主。</p></article><article><span>河口湖</span><h3>餺飥不動</h3><p>富士山日午餐，山梨名物味噌餺飥麵。</p></article><article><span>原宿／澀谷</span><h3>牛かつ或柚子拉麵</h3><p>午餐快速解決，下午把時間留給逛街。</p></article><article><span>上野</span><h3>炸豬排或蕎麥麵</h3><p>回程日早午餐，吃完直接領行李前往機場。</p></article></div>
+      </section>
 
-        <div class="budget-layout">
-          <div class="budget-bars" id="budget-bars"></div>
-          <aside class="budget-total">
-            <span>2 人已報價總額</span>
-            <strong id="budget-total">NT$42,044</strong>
-            <p id="budget-note">每人分攤 NT$21,022。此金額不含托運行李加購、餐飲、當地交通、按摩、活動、旅平險與網卡。</p>
-          </aside>
-        </div>
+      <section class="section" id="budget">
+        <div class="section-heading"><p class="eyebrow">Budget guardrail</p><h2>目前能確認的預算</h2><p>機票已購買但未提供票價；以下只計住宿上限，不混入估算。</p></div>
+        <div class="budget-grid"><div class="budget-main"><span>住宿 4 晚含稅上限</span><strong>NT$32,000</strong><div class="progress"><i></i></div><p>等於每晚 NT$8,000、每人四晚 NT$8,000。</p></div><div class="budget-notes"><div><span>機票</span><strong>已購買 · 金額待補</strong></div><div><span>尚未計入</span><strong>餐食、交通、景點票券、富士山行程</strong></div></div></div>
       </section>
 
       <section class="section checklist-section">
-        <div class="section-heading">
-          <p class="eyebrow">Before booking</p>
-          <h2>下單前確認</h2>
-        </div>
-
-        <div class="checklist">
-          <label><input type="checkbox" /> 星宇、泰國亞洲航空、泰越捷票價是否含托運行李</label>
-          <label><input type="checkbox" /> 去程若要最早直飛，改 THAI 並多付 NT$3,684</label>
-          <label><input type="checkbox" /> 曼谷飛普吉已改 10/23 晚上，確認普吉飯店入住時間</label>
-          <label><input type="checkbox" /> Google Hotels 價格進入 Agoda / Booking / IHG 結帳頁再確認稅費</label>
-          <label><input type="checkbox" /> 出發前確認 TDAC 與泰國入境規則</label>
-        </div>
+        <div class="section-heading"><p class="eyebrow">Before departure</p><h2>接下來要確認</h2></div>
+        <div class="checklist"><label><input type="checkbox" /> 訂房搜尋設定為 4 位成人、1 間房</label><label><input type="checkbox" /> 最終結帳含稅總額不超過 NT$32,000</label><label><input type="checkbox" /> 晴空塔預約 11/12 下午 16:00–17:00</label><label><input type="checkbox" /> 出發前一週比較 11/13、11/14 的富士山天氣</label><label><input type="checkbox" /> 回程日 11:30 前離開東京市區</label></div>
       </section>
     </main>
-
-    <footer>
-      <p>Prices checked on 2026-05-27. Flight and hotel prices can change before checkout.</p>
-    </footer>
+    <footer><strong>TOKYO 2026</strong><p>行程更新：2026/09/13 · 航班時間以已購買資訊整理，住宿以結帳頁為準。</p></footer>
   </body>
 </html>
