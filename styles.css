@@ -85,6 +85,10 @@ button, input { font: inherit; }
 .stay-summary { display: grid; grid-template-columns: repeat(3, 1fr); margin-bottom: 18px; border: 1px solid var(--line); border-radius: 8px; background: var(--white); }
 .stay-summary div { padding: 20px 22px; border-right: 1px solid var(--line); }
 .stay-summary div:last-child { border: 0; }
+.stay-mode-tabs { display: inline-flex; gap: 4px; margin: 2px 0 16px; padding: 4px; border: 1px solid var(--line); border-radius: 7px; background: var(--white); }
+.stay-mode { min-height: 42px; padding: 9px 16px; border: 0; border-radius: 5px; color: var(--muted); background: transparent; font-weight: 800; cursor: pointer; }
+.stay-mode.active { color: var(--white); background: var(--green); }
+.hotel-panel[hidden] { display: none; }
 .hotel-list { display: grid; gap: 12px; }
 .hotel-card { display: grid; grid-template-columns: 105px 1fr; overflow: hidden; box-shadow: none; }
 .hotel-card.recommended { border-color: #9dbbae; box-shadow: 0 12px 32px rgba(25,91,76,.08); }
@@ -181,6 +185,8 @@ footer p { margin: 7px 0 0; color: var(--muted); font-size: .85rem; }
   .stay-summary { grid-template-columns: 1fr; }
   .stay-summary div { border-right: 0; border-bottom: 1px solid var(--line); }
   .hotel-card { grid-template-columns: 1fr; }
+  .stay-mode-tabs { width: 100%; }
+  .stay-mode { flex: 1; padding-inline: 8px; }
   .rank { min-height: 36px; }
   .hotel-body { padding: 20px; }
   .hotel-title h3 { font-size: 1.2rem; overflow-wrap: anywhere; }

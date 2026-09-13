@@ -25,3 +25,21 @@ function renderDay(index) {
 
 tabs.forEach((tab) => tab.addEventListener("click", () => renderDay(Number(tab.dataset.day))));
 renderDay(0);
+
+const stayModes = [...document.querySelectorAll(".stay-mode")];
+const hotelPanels = [...document.querySelectorAll(".hotel-panel")];
+
+function renderStayMode(mode) {
+  stayModes.forEach((button) => {
+    const active = button.dataset.stayMode === mode;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-selected", String(active));
+  });
+  hotelPanels.forEach((panel) => {
+    const active = panel.dataset.hotelPanel === mode;
+    panel.classList.toggle("active", active);
+    panel.hidden = !active;
+  });
+}
+
+stayModes.forEach((button) => button.addEventListener("click", () => renderStayMode(button.dataset.stayMode)));
